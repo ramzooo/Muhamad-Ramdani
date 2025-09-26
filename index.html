@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warkop Muhamad Ramdani - Kopi Tradisional Terbaik</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset & Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #8B4513;
+            --secondary: #D2691E;
+            --accent: #A52A2A;
+            --light: #F5DEB3;
+            --dark: #3C2A21;
+            --text: #2C1810;
+            --background: #FFF8F0;
+            --muted: #E9DCC9;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--background);
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-menu li {
+            margin-left: 1.5rem;
+        }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--light);
+        }
+        
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://placeholder-image-service.onrender.com/image/1200x800?prompt=Traditional%20Indonesian%20coffee%20shop%20with%20wooden%20tables%20and%20aromatic%20coffee%20brew&id=a032fd43-8fc8-437d-b624-37eb85a7f332') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 0;
+            background-color: var(--muted);
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s;
+        }
+        
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Menu Section */
+        .menu {
+            padding: 5rem 0;
+        }
+        
+        .menu-filters {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: var(--muted);
+            border: none;
+            padding: 0.5rem 1.5rem;
+            margin: 0 0.5rem 1rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu-item-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-item-image img {
+            transform: scale(1.1);
+        }
+        
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-item-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .menu-item-price {
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .menu-item-desc {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+        
+        /* Testimonial Section */
+        .testimonials {
+            padding: 5rem 0;
+            background-color: var(--muted);
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .testimonial {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        
+        .testimonial::before {
+            content: '"';
+            font-size: 5rem;
+            color: var(--light);
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            opacity: 0.3;
+        }
+        
+        .testimonial-text {
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-image {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Gallery Section */
+        .gallery {
+            padding: 5rem 0;
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 250px;
+            position: relative;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-item-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(139, 69, 19, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .gallery-item-overlay {
+            opacity: 1;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--muted);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+        
+        .contact-info {
+            margin-bottom: 2rem;
+        }
+        
+        .contact-info-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Login Form */
+        .auth-container {
+            max-width: 500px;
+            margin: 100px auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .auth-tabs {
+            display: flex;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .auth-tab {
+            padding: 0.8rem 1.5rem;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .auth-tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            font-weight: bold;
+        }
+        
+        .auth-form {
+            display: none;
+        }
+        
+        .auth-form.active {
+            display: block;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+        
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s, transform 0.5s;
+        }
+        
+        .animate.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+                flex-direction: column;
+                align-items: center;
+                display: none;
+            }
+            
+            .nav-menu.active {
+                display: flex;
+            }
+            
+            .nav-menu li {
+                margin: 0.5rem 0;
+            }
+            
+            .hamburger {
+                display: block;
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .menu-grid, .testimonial-grid, .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Warkop Muhamad Ramdani</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Beranda</a></li>
+                <li><a href="#about">Tentang</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#testimonials">Testimoni</a></li>
+                <li><a href="#gallery">Galeri</a></li>
+                <li><a href="#contact">Kontak</a></li>
+                <li><a href="#login">Login</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Nikmati Kopi Tradisional Terbaik di Bogor</h1>
+            <p>Sejak 2010, menghadirkan cita rasa kopi autentik dengan suasana yang hangat dan nyaman</p>
+            <a href="#menu" class="btn">Lihat Menu</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Warkop Muhamad Ramdani didirikan pada tahun 2010 dengan visi menyajikan kopi tradisional terbaik dengan cita rasa khas Indonesia. Berlokasi di Kp. Peuteuy Desa Kalong Sawah Kec Jasinga Kab Bogor, kami telah menjadi tempat favorit bagi masyarakat sekitar dan para pelancong.</p>
+                    <p>Dengan bahan-bahan pilihan dan proses penyajian yang teliti, setiap cangkir kopi yang kami hidangkan menjanjikan pengalaman rasa yang tak terlupakan. Suasana warung yang hangat dan ramah membuat setiap pelanggan merasa seperti di rumah sendiri.</p>
+                    <p>Selain kopi, kami juga menyediakan berbagai menu makanan ringan dan rokok untuk melengkapi experience menikmati kopi tradisional Indonesia.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://placeholder-image-service.onrender.com/image/600x400?prompt=Cozy%20traditional%20Indonesian%20coffee%20shop%20interior%20with%20wooden%20furniture%20and%20warm%20lighting&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Interior Warkop Muhamad Ramdani dengan suasana tradisional yang nyaman">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <h2 class="section-title">Menu Kami</h2>
+            <div class="menu-filters">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="coffee">Kopi</button>
+                <button class="filter-btn" data-filter="cigarette">Rokok</button>
+                <button class="filter-btn" data-filter="food">Makanan</button>
+                <button class="filter-btn" data-filter="drink">Minuman</button>
+            </div>
+            <div class="menu-grid">
+                <!-- Kopi Hitam -->
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Traditional%20Indonesian%20black%20coffee%20in%20a%20glass%20cup%20with%20rich%20dark%20color%20and%20aroma&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Kopi Hitam tradisional Indonesia dalam gelas saji">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Kopi Hitam Tradisional</h3>
+                        <div class="menu-item-price">Rp 10.000</div>
+                        <p class="menu-item-desc">Kopi pilihan dengan rasa kuat dan aroma khas, diseduh secara tradisional.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Kopi Susu -->
+                <div class="menu-item" data-category="coffee">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Indonesian%20coffee%20with%20milk%20in%20a%20glass%20with%20layers%20of%20coffee%20and%20condensed%20milk&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Kopi Susu dengan lapisan kopi dan susu yang menyegarkan">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Kopi Susu</h3>
+                        <div class="menu-item-price">Rp 12.000</div>
+                        <p class="menu-item-desc">Perpaduan sempurna antara kopi hitam dan susu kental manis, menciptakan rasa yang creamy.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Sampoerna Mild -->
+                <div class="menu-item" data-category="cigarette">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Sampoerna%20Mild%20cigarette%20pack%20with%20elegant%20design%20on%20a%20wooden%20table&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Pack rokok Sampoerna Mild dengan desain elegan">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Sampoerna Mild</h3>
+                        <div class="menu-item-price">Rp 30.000</div>
+                        <p class="menu-item-desc">Rokok dengan rasa mild yang ringan dan smooth, pilihan tepat untuk menemani kopi.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Dji Sam Soe -->
+                <div class="menu-item" data-category="cigarette">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Dji%20Sam%20Soe%20cigarette%20pack%20with%20distinctive%20red%20design%20on%20a%20table&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Pack rokok Dji Sam Soe dengan desain merah khas">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Dji Sam Soe</h3>
+                        <div class="menu-item-price">Rp 35.000</div>
+                        <p class="menu-item-desc">Rokok kretek dengan cita rasa kuat dan aroma khas Indonesia yang autentik.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Mie Instan -->
+                <div class="menu-item" data-category="food">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Instant%20noodles%20served%20in%20a%20bowl%20with%20egg%20and%20greens%20steam%20rising&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Mie instan dengan telur dan sayuran dalam mangkuk saji">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Mie Instan Telur</h3>
+                        <div class="menu-item-price">Rp 15.000</div>
+                        <p class="menu-item-desc">Mie instan dimasak dengan sempurna ditambah telur mata sapi, hangat dan mengenyangkan.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Roti Bakar -->
+                <div class="menu-item" data-category="food">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Grilled%20toast%20with%20chocolate%20and%20cheese%20filling%20golden%20brown%20and%20crispy&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Roti bakar coklat keese dengan tampilan golden brown yang renyah">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Roti Bakar Coklat Keju</h3>
+                        <div class="menu-item-price">Rp 18.000</div>
+                        <p class="menu-item-desc">Roti panggang dengan isian coklat dan keju leleh, cocok untuk camilan manis.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Teh Tarik -->
+                <div class="menu-item" data-category="drink">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Pulled%20tea%20in%20a%20tall%20glass%20with%20foam%20on%20top%20and%30condensed%20milk&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Teh Tarik dalam gelas tinggi dengan foam dan susu kental">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Teh Tarik</h3>
+                        <div class="menu-item-price">Rp 12.000</div>
+                        <p class="menu-item-desc">Teh susu yang ditarik hingga menghasilkan tekstur foam yang halus dan rasa yang khas.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+                
+                <!-- Jeruk Hangat -->
+                <div class="menu-item" data-category="drink">
+                    <div class="menu-item-image">
+                        <img src="https://placeholder-image-service.onrender.com/image/400x300?prompt=Warm%20orange%20drink%20in%20a%20glass%20with%20slices%20of%20orange%20and%20honey&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Minuman jeruk hangat dengan irisan jeruk dan madu">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">Jeruk Hangat</h3>
+                        <div class="menu-item-price">Rp 10.000</div>
+                        <p class="menu-item-desc">Minuman jeruk hangat dengan tambahan madu, menyegarkan dan menyehatkan.</p>
+                        <button class="btn">Pesan Sekarang</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonial Section -->
+    <section class="testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Pelanggan</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Kopi di Warkop Muhamad Ramdani memang beda, rasanya autentik dan harganya sangat terjangkau. Tempatnya nyaman untuk nongkrong bersama teman-teman."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://placeholder-image-service.onrender.com/image/100x100?prompt=Indonesian%20man%20smiling%20with%20friendly%20expression%20and%20mustache&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Foto Ahmad, pelanggan setia Warkop Muhamad Ramdani">
+                        </div>
+                        <div class="author-info">
+                            <h4>Ahmad</h4>
+                            <p>Pelanggan Setia</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Setiap kali pulang kampung, wajib mampir ke sini. Kopi hitamnya paling enak, dan rokoknya lengkap. Pelayannya ramah-ramah dan harga tidak menguras kantong."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://placeholder-image-service.onrender.com/image/100x100?prompt=Indonesian%20woman%20with%20warm%20smile%20and%20traditional%20headscarf&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Foto Siti, pelanggan yang sering berkunjung">
+                        </div>
+                        <div class="author-info">
+                            <h4>Siti</h4>
+                            <p>Pelanggan Rutin</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        "Suasana di warkop ini bikin betah, apalagi kalau ditemani kopi susu dan roti bakar. Recommended banget untuk yang cari tempat nongkrong asyik di Jasinga."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="https://placeholder-image-service.onrender.com/image/100x100?prompt=Young%20Indonesian%20man%20with%20modern%20hairstyle%20and%20friendly%20smile&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Foto Rizky, pengunjung muda Warkop Muhamad Ramdani">
+                        </div>
+                        <div class="author-info">
+                            <h4>Rizky</h4>
+                            <p>Pengunjung Muda</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery" id="gallery">
+        <div class="container">
+            <h2 class="section-title">Galeri Pengunjung</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=People%20enjoying%20coffee%20at%20a%20traditional%20warung%20with%20smiles%20and%20conversation&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Orang sedang menikmati kopi di warung dengan percakapan yang santai">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=Close-up%20of%20a%20person%20sipping%20coffee%20with%20satisfied%20expression%20in%20a%20warung&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Close-up seseorang menyesap kopi dengan ekspresi puas">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=Group%20of%20friends%20laughing%20and%20drinking%20coffee%20together%20at%20wooden%20tables&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Sekelompok teman tertawa dan minum kopi bersama di meja kayu">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=Person%20reading%20newspaper%20while%20enjoying%20coffee%20in%20a%20relaxed%20atmosphere&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Seseorang membaca koran sambil menikmati kopi dalam atmosfer yang santai">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=Barista%20preparing%20traditional%20coffee%20with%20authentic%20brewing%20tools&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Barista menyiapkan kopi tradisional dengan alat seduh autentik">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="https://placeholder-image-service.onrender.com/image/400x400?prompt=Evening%20at%20the%20warung%20with%20warm%20lighting%20and%20people%20gathering&id=a032fd43-8fc8-437d-b624-37eb85a7f332" alt="Suasana sore di warung dengan pencahayaan hangat dan orang berkumpul">
+                    <div class="gallery-item-overlay">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Alamat</h3>
+                            <p>Kp. Peuteuy Desa Kalong Sawah, Kec Jasinga, Kab Bogor</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Telepon</h3>
+                            <p>085782230455</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>ramdangamers817@gmail.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-info-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Jam Operasional</h3>
+                            <p>Senin - Minggu: 07.00 - 22.00 WIB</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Kirim Pesan</h3>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nama</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subjek</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Pesan</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Kirim Pesan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Login Section -->
+    <section class="auth-container" id="login">
+        <div class="auth-tabs">
+            <div class="auth-tab active" data-tab="login">Login</div>
+            <div class="auth-tab" data-tab="register">Daftar</div>
+        </div>
+        
+        <form class="auth-form active" id="loginForm">
+            <div class="form-group">
+                <label for="loginEmail">Email</label>
+                <input type="email" id="loginEmail" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="loginPassword">Password</label>
+                <input type="password" id="loginPassword" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn">Login</button>
+        </form>
+        
+        <form class="auth-form" id="registerForm">
+            <div class="form-group">
+                <label for="registerName">Nama Lengkap</label>
+                <input type="text" id="registerName" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerEmail">Email</label>
+                <input type="email" id="registerEmail" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerPhone">Telepon</label>
+                <input type="tel" id="registerPhone" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerPassword">Password</label>
+                <input type="password" id="registerPassword" class="form-control" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="registerConfirmPassword">Konfirmasi Password</label>
+                <input type="password" id="registerConfirmPassword" class="form-control" required>
+            </div>
+            
+            <button type="submit" class="btn">Daftar</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-container">
+            <div class="footer-col">
+                <h3>Warkop Muhamad Ramdani</h3>
+                <p>Menghadirkan cita rasa kopi tradisional terbaik sejak 2010 dengan suasana yang hangat dan nyaman.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Tautan Cepat</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h3>Jam Operasional</h3>
+                <ul class="footer-links">
+                    <li>Senin: 07.00 - 22.00</li>
+                    <li>Selasa: 07.00 - 22.00</li>
+                    <li>Rabu: 07.00 - 22.00</li>
+                    <li>Kamis: 07.00 - 22.00</li>
+                    <li>Jumat: 07.00 - 22.00</li>
+                    <li>Sabtu: 07.00 - 22.00</li>
+                    <li>Minggu: 07.00 - 22.00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Warkop Muhamad Ramdani. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        document.querySelector('.hamburger').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+        
+        // Menu Filtering
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const menuItems = document.querySelectorAll('.menu-item');
+        
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                menuItems.forEach(item => {
+                    if (filter === 'all' || item.getAttribute('data-category') === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+        
+        // Auth Tabs
+        const authTabs = document.querySelectorAll('.auth-tab');
+        const authForms = document.querySelectorAll('.auth-form');
+        
+        authTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabName = tab.getAttribute('data-tab');
+                
+                // Remove active class from all tabs and forms
+                authTabs.forEach(t => t.classList.remove('active'));
+                authForms.forEach(f => f.classList.remove('active'));
+                
+                // Add active class to clicked tab and corresponding form
+                tab.classList.add('active');
+                document.getElementById(`${tabName}Form`).classList.add('active');
+            });
+        });
+        
+        // Form Submissions
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Terima kasih! Pesan Anda telah terkirim. Kami akan segera merespons.');
+            this.reset();
+        });
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Login berhasil! Selamat datang di Warkop Muhamad Ramdani.');
+            this.reset();
+        });
+        
+        document.getElementById('registerForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pendaftaran berhasil! Silakan login dengan akun yang telah dibuat.');
+            this.reset();
+            
+            // Switch to login tab after registration
+            authTabs.forEach(t => t.classList.remove('active'));
+            authForms.forEach(f => f.classList.remove('active'));
+            document.querySelector('[data-tab="login"]').classList.add('active');
+            document.getElementById('loginForm').classList.add('active');
+        });
+        
+        // Scroll Animation
+        const animateElements = document.querySelectorAll('.animate');
+        
+        function checkScroll() {
+            animateElements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                
+                if (elementPosition < screenPosition) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        // Initial check and add scroll event listener
+        window.addEventListener('scroll', checkScroll);
+        checkScroll(); // Check on load
+        
+        // Add animate class to elements that should animate
+        document.querySelectorAll('.about-content, .menu-item, .testimonial, .gallery-item, .contact-info-item').forEach(el => {
+            el.classList.add('animate');
+        });
+    </script>
+</body>
+</html>
